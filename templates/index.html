@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pakistan House Price Prediction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c5364;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      width: 100%;
+      background: #fafafa;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 15px;
+      font-size: 18px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    /* Smooth fade-in for result */
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f0f9f0;
+      color: #155724;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>🏠 Pakistan House Price Prediction</header>
+
+  <div class="container">
+    <h2>Enter Property Details</h2>
+    <form action="/predict" method="post">
+
+      <!-- Property Type -->
+      <div>
+        <label>Property Type</label>
+        <select name="type" required>
+          <option value="0">House</option>
+          <option value="1">Flat</option>
+          <option value="2">Plot</option>
+        </select>
+      </div>
+
+      <!-- Location -->
+      <div>
+        <label>Location</label>
+        <select name="location" required>
+          <option value="0">DHA</option>
+          <option value="1">Bahria Town</option>
+          <option value="2">Gulberg</option>
+          <option value="3">Cantt</option>
+        </select>
+      </div>
+
+      <!-- City -->
+      <div>
+        <label>City</label>
+        <select name="city" required>
+          <option value="0">Lahore</option>
+          <option value="1">Karachi</option>
+          <option value="2">Islamabad</option>
+          <option value="3">Rawalpindi</option>
+        </select>
+      </div>
+
+      <!-- Purpose -->
+      <div>
+        <label>Purpose</label>
+        <select name="purpose" required>
+          <option value="0">Sale</option>
+          <option value="1">Rent</option>
+        </select>
+      </div>
+
+      <!-- Baths -->
+      <div>
+        <label>Baths</label>
+        <input type="number" name="baths" min="1" max="10" placeholder="e.g., 3" required>
+      </div>
+
+      <!-- Beds -->
+      <div>
+        <label>Beds</label>
+        <input type="number" name="beds" min="1" max="10" placeholder="e.g., 4" required>
+      </div>
+
+      <!-- Area -->
+      <div>
+        <label>Area (sq ft)</label>
+        <input type="number" name="area" min="200" placeholder="e.g., 1500" required>
+      </div>
+
+      <!-- Empty cell to align button -->
+      <div></div>
+
+      <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+      {{ prediction_text }}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
