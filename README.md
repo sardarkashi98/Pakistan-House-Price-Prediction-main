@@ -71,6 +71,6 @@ In the context of predicting house prices, a lower prediction accuracy might som
 
 ## Thank You
 Thank you for exploring this project. For any questions or contributions, feel free to reach out.
-=======
+
 
 
