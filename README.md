@@ -4,7 +4,8 @@
 ## Overview
 This project focuses on predicting house prices in various cities of Pakistan using machine learning techniques. The dataset contains features such as property type, location, city, number of baths, purpose (e.g., for sale), number of bedrooms, area in square feet, and price.
 ## Result Image
-![Housing Price](housing price.png)
+(![Uploading image.png…]()
+)
 
 ## Contents
 1. [Data Import](#data-import)
